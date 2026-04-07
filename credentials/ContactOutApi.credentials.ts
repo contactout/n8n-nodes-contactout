@@ -9,7 +9,7 @@ import type {
 export class ContactOutApi implements ICredentialType {
 	name = 'contactOutApi';
 	displayName = 'ContactOut API';
-	documentationUrl = 'https://api.contactout.com/';
+	documentationUrl = 'https://api.contactout.io/#authentication';
 	icon: Icon = {
 		light: 'file:../icons/contactout.svg',
 		dark: 'file:../icons/contactout.dark.svg',
