@@ -3,6 +3,7 @@ import { contactInfoSingleFields } from './contactInfoSingle';
 import { peopleEnrichFields } from './peopleEnrich';
 import { contactInfoBulkV2Fields } from './contactInfoBulkV2';
 import { decisionMakersFields } from './decisionMakers';
+import { validatePeopleEnrich, validateDecisionMakers } from './validators';
 
 export const profileOperations: INodeProperties = {
 	displayName: 'Operation',
@@ -26,12 +27,15 @@ export const profileOperations: INodeProperties = {
 					method: 'POST',
 					url: '/v1/people/enrich',
 				},
+				send: {
+					preSend: [validatePeopleEnrich],
+				},
 			},
 		},
 		{
 			name: 'Get Contact Info',
 			value: 'contactInfoSingle',
-			action: 'Get contact details from a LinkedIn URL',
+			action: 'Get contact details from a linked in url',
 			description:
 				'Get contact details (email/phone) from a LinkedIn profile URL. Consumes email/phone credits.',
 			routing: {
@@ -64,6 +68,9 @@ export const profileOperations: INodeProperties = {
 				request: {
 					method: 'GET',
 					url: '/v1/people/decision-makers',
+				},
+				send: {
+					preSend: [validateDecisionMakers],
 				},
 			},
 		},

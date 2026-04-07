@@ -83,7 +83,8 @@ export const peopleEnrichFields: INodeProperties[] = [
     type: 'string',
     default: '',
     placeholder: 'Example Person',
-    description: 'Full name (requires company, domain, or education)',
+    description:
+      'Full name of the person. When used instead of a primary identifier, requires at least one secondary parameter (company, company domain, education, location, or job title).',
     displayOptions,
     routing: {
       send: {
@@ -99,7 +100,7 @@ export const peopleEnrichFields: INodeProperties[] = [
     type: 'string',
     default: '',
     placeholder: 'ContactOut, Acme',
-    description: 'Company name(s), comma-separated (max 10)',
+    description: 'Company name(s), comma-separated (max 10). Secondary parameter for name-based lookup.',
     displayOptions,
     routing: {
       send: {
@@ -115,7 +116,7 @@ export const peopleEnrichFields: INodeProperties[] = [
     type: 'string',
     default: '',
     placeholder: 'contactout.com, acme.com',
-    description: 'Company domain(s), comma-separated (max 10)',
+    description: 'Company domain(s), comma-separated (max 10). Secondary parameter for name-based lookup.',
     displayOptions,
     routing: {
       send: {
@@ -131,7 +132,7 @@ export const peopleEnrichFields: INodeProperties[] = [
     type: 'string',
     default: '',
     placeholder: 'Stanford University, MIT',
-    description: 'Educational institution(s), comma-separated (max 10)',
+    description: 'Educational institution(s), comma-separated (max 10). Secondary parameter for name-based lookup.',
     displayOptions,
     routing: {
       send: {
@@ -147,6 +148,7 @@ export const peopleEnrichFields: INodeProperties[] = [
     type: 'string',
     default: '',
     placeholder: 'Product Manager',
+    description: 'Job title. Secondary parameter for name-based lookup.',
     displayOptions,
     routing: {
       send: {
@@ -162,6 +164,7 @@ export const peopleEnrichFields: INodeProperties[] = [
     type: 'string',
     default: '',
     placeholder: 'San Francisco, CA',
+    description: 'Location or city. Secondary parameter for name-based lookup.',
     displayOptions,
     routing: {
       send: {
