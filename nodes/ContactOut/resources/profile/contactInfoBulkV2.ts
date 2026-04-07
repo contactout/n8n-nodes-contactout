@@ -1,4 +1,5 @@
 import type { INodeProperties } from 'n8n-workflow';
+import { validateBulkProfiles } from './validators';
 
 const displayOptions = {
 	show: {
@@ -18,9 +19,7 @@ export const contactInfoBulkV2Fields: INodeProperties[] = [
 		displayOptions,
 		routing: {
 			send: {
-				type: 'body',
-				property: 'profiles',
-				value: '={{JSON.parse($value)}}',
+				preSend: [validateBulkProfiles],
 			},
 		},
 	},

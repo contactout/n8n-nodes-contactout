@@ -29,6 +29,48 @@ export async function validatePeopleEnrich(
 	return requestOptions;
 }
 
+export async function validateBulkProfiles(
+	this: IExecuteSingleFunctions,
+	requestOptions: IHttpRequestOptions,
+): Promise<IHttpRequestOptions> {
+	const raw = this.getNodeParameter('profiles') as string | string[];
+
+	let profiles: unknown;
+	if (Array.isArray(raw)) {
+		profiles = raw;
+	} else {
+		try {
+			profiles = JSON.parse(raw);
+		} catch {
+			throw new NodeOperationError(
+				this.getNode(),
+				'LinkedIn Profile URLs must be a valid JSON array, e.g. ["https://linkedin.com/in/person"]',
+			);
+		}
+	}
+
+	if (!Array.isArray(profiles)) {
+		throw new NodeOperationError(
+			this.getNode(),
+			'LinkedIn Profile URLs must be an array, e.g. ["https://linkedin.com/in/person"]',
+		);
+	}
+
+	if (profiles.length === 0) {
+		throw new NodeOperationError(this.getNode(), 'LinkedIn Profile URLs array must not be empty.');
+	}
+
+	if (profiles.length > 1000) {
+		throw new NodeOperationError(
+			this.getNode(),
+			`LinkedIn Profile URLs array exceeds the maximum of 1000 (got ${profiles.length}).`,
+		);
+	}
+
+	requestOptions.body = { ...(requestOptions.body as object), profiles };
+	return requestOptions;
+}
+
 export async function validateDecisionMakers(
 	this: IExecuteSingleFunctions,
 	requestOptions: IHttpRequestOptions,
