@@ -1,0 +1,18 @@
+{
+	"node": "n8n-nodes-contactout",
+	"nodeVersion": "1.0",
+	"codexVersion": "1.0",
+	"categories": ["Sales", "Marketing & Content", "Productivity", "Communication"],
+	"resources": {
+		"credentialDocumentation": [
+			{
+				"url": "https://api.contactout.io/#authentication"
+			}
+		],
+		"primaryDocumentation": [
+			{
+				"url": "https://api.contactout.io"
+			}
+		]
+	}
+}
