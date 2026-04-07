@@ -40,7 +40,7 @@ export const contactInfoSingleFields: INodeProperties[] = [
 		type: 'string',
 		required: true,
 		default: '',
-		placeholder: 'https://www.linkedin.com/in/janedoe',
+		placeholder: 'https://www.linkedin.com/in/example-profile',
 		description: 'The LinkedIn profile URL. Must contain linkedin.com/in/ or linkedin.com/pub/.',
 		displayOptions,
 		routing: {

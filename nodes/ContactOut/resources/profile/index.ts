@@ -31,7 +31,7 @@ export const profileOperations: INodeProperties = {
 		{
 			name: 'Get Contact Info',
 			value: 'contactInfoSingle',
-			action: 'Get contact details from a profile URL',
+			action: 'Get contact details from a LinkedIn URL',
 			description:
 				'Get contact details (email/phone) from a LinkedIn profile URL. Consumes email/phone credits.',
 			routing: {

@@ -13,7 +13,7 @@ export const contactInfoBulkV2Fields: INodeProperties[] = [
 		name: 'profiles',
 		type: 'json',
 		required: true,
-		default: '[\n  "https://linkedin.com/in/janedoe",\n  "https://linkedin.com/in/johndoe"\n]',
+		default: '[\n  "https://linkedin.com/in/example-profile-1",\n  "https://linkedin.com/in/example-profile-2"\n]',
 		description: 'Array of LinkedIn profile URLs to enrich (max 1000)',
 		displayOptions,
 		routing: {

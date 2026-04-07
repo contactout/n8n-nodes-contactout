@@ -34,7 +34,7 @@ export const peopleEnrichFields: INodeProperties[] = [
     name: 'linkedinUrl',
     type: 'string',
     default: '',
-    placeholder: 'https://linkedin.com/in/janedoe',
+    placeholder: 'https://linkedin.com/in/example-profile',
     description: 'LinkedIn profile URL (primary identifier)',
     displayOptions,
     routing: {
@@ -50,7 +50,7 @@ export const peopleEnrichFields: INodeProperties[] = [
     name: 'email',
     type: 'string',
     default: '',
-    placeholder: 'john@example.com',
+    placeholder: 'person@example.com',
     description: 'Email address (primary identifier)',
     displayOptions,
     routing: {
@@ -82,7 +82,7 @@ export const peopleEnrichFields: INodeProperties[] = [
     name: 'fullName',
     type: 'string',
     default: '',
-    placeholder: 'Jane Doe',
+    placeholder: 'Example Person',
     description: 'Full name (requires company, domain, or education)',
     displayOptions,
     routing: {
