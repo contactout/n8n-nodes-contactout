@@ -11,6 +11,9 @@
         "name": "ContactOut",
         "email": "support@contactout.com"
     },
+    "publishConfig": {
+        "access": "public"
+    },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/contactout/n8n-nodes-contactout.git"
