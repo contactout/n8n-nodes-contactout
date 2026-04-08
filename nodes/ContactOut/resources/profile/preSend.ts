@@ -101,14 +101,10 @@ export async function decisionMakersPreSend(
 	const domain = this.getNodeParameter('domain') as string;
 	const name = this.getNodeParameter('companyName') as string;
 
-	const hasPrimary = !!(linkedinUrl || domain);
-	const hasNameWithSecondary = !!(name && (linkedinUrl || domain));
-
-	if (!hasPrimary && !hasNameWithSecondary) {
+	if (!linkedinUrl && !domain && !name) {
 		throw new NodeOperationError(
 			this.getNode(),
-			'Provide at least one of: Company LinkedIn URL or Domain. ' +
-				'Company Name alone is not sufficient — it requires Domain or Company LinkedIn URL.',
+			'Provide at least one of: company LinkedIn URL, company domain, or company name'
 		);
 	}
 	return requestOptions;
