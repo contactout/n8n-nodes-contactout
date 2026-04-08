@@ -1,6 +1,6 @@
 # n8n-nodes-contactout
 
-An n8n community node for the [ContactOut API](https://api.contactout.com). Find emails, phone numbers, and profile data for people and companies directly in your n8n workflows.
+An n8n community node for [ContactOut](https://contactout.com). Find emails, phone numbers, and profile data for people and companies directly in your n8n workflows.
 
 ## Installation
 
