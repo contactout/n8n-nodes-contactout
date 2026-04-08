@@ -1,6 +1,6 @@
 {
     "name": "@contactout/n8n-nodes-contactout",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "n8n community node for ContactOut API - Find emails and phone numbers from LinkedIn profiles",
     "license": "MIT",
     "homepage": "https://contactout.com",
@@ -15,15 +15,15 @@
         "type": "git",
         "url": "git+https://github.com/contactout/n8n-nodes-contactout.git"
     },
-   "scripts": {
-		"build": "n8n-node build",
-		"build:watch": "tsc --watch",
-		"dev": "n8n-node dev",
-		"lint": "n8n-node lint",
+    "scripts": {
+        "build": "n8n-node build",
+        "build:watch": "tsc --watch",
+        "dev": "n8n-node dev",
+        "lint": "n8n-node lint",
         "lint:fix": "n8n-node lint --fix",
-		"release": "n8n-node release",
-		"prepublishOnly": "n8n-node prerelease"
-	},
+        "release": "n8n-node release",
+        "prepublishOnly": "n8n-node prerelease"
+    },
     "files": [
         "dist"
     ],
