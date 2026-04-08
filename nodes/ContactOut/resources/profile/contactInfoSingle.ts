@@ -12,12 +12,13 @@ export const contactInfoSingleFields: INodeProperties[] = [
 		displayName: 'Include Contact Info',
 		name: 'includeContactInfo',
 		type: 'multiOptions',
-		default: ['personal_email', 'work_email'],
-		description: 'What email types to include. Uses 1 email credit per email found.',
+		default: [],
+		description: 'Which email types to include. Uses 1 email credit per email found, 1 phone credit per phone found.',
 		displayOptions,
 		options: [
 			{ name: 'Work Email', value: 'work_email' },
 			{ name: 'Personal Email', value: 'personal_email' },
+			{ name: 'Phone', value: 'phone' },
 		],
 	},
 	{

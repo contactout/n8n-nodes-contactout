@@ -7,17 +7,27 @@ export async function contactInfoSinglePreSend(
 ): Promise<IHttpRequestOptions> {
 	const selected = this.getNodeParameter('includeContactInfo') as string[];
 
+	if (selected.length === 0) {
+		throw new NodeOperationError(
+			this.getNode(),
+			'At least one contact info type must be selected (work email, personal email, or phone).',
+		);
+	}
+
 	const hasWork = selected.includes('work_email');
 	const hasPersonal = selected.includes('personal_email');
+	const hasPhone = selected.includes('phone');
 
-	let emailType: string | undefined;
+	let emailType: string;
 	if (hasWork && hasPersonal) emailType = 'personal,work';
 	else if (hasPersonal) emailType = 'personal';
 	else if (hasWork) emailType = 'work';
+	else emailType = 'none';
 
-	if (emailType) {
-		(requestOptions.qs as Record<string, unknown>) ??= {};
-		(requestOptions.qs as Record<string, unknown>).email_type = emailType;
+	(requestOptions.qs as Record<string, unknown>) ??= {};
+	(requestOptions.qs as Record<string, unknown>).email_type = emailType;
+	if (hasPhone) {
+		(requestOptions.qs as Record<string, unknown>).include_phone = true;
 	}
 
 	return requestOptions;
