@@ -43,9 +43,9 @@ export async function peopleEnrichPreSend(
 	if (!hasPrimary && !(fullName && hasSecondary)) {
 		throw new NodeOperationError(
 			this.getNode(),
-			'Provide a primary identifier (LinkedIn URL, Email, or Phone), ' +
-				'or a Full Name with at least one secondary parameter ' +
-				'(Company, Company Domain, Education, Job Title, or Location).',
+			'Provide a primary identifier (LinkedIn URL, email, or phone), ' +
+				'or a full name with at least one secondary parameter ' +
+				'(company, company domain, education, job title, or location).',
 		);
 	}
 	return requestOptions;
@@ -66,7 +66,7 @@ export async function contactInfoBulkV2PreSend(
 		} catch {
 			throw new NodeOperationError(
 				this.getNode(),
-				'LinkedIn Profile URLs must be a valid JSON array, e.g. ["https://linkedin.com/in/person"]',
+        'LinkedIn Profile URLs must be a valid JSON array, e.g. ["https://linkedin.com/in/example-profile", "https://linkedin.com/in/example-profile-2"]',
 			);
 		}
 	}
@@ -74,7 +74,7 @@ export async function contactInfoBulkV2PreSend(
 	if (!Array.isArray(profiles)) {
 		throw new NodeOperationError(
 			this.getNode(),
-			'LinkedIn Profile URLs must be an array, e.g. ["https://linkedin.com/in/person"]',
+        'LinkedIn Profile URLs must be an array, e.g. ["https://linkedin.com/in/example-profile", "https://linkedin.com/in/example-profile-2"]',
 		);
 	}
 
