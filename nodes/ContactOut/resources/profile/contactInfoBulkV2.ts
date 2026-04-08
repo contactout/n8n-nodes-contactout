@@ -1,5 +1,4 @@
 import type { INodeProperties } from 'n8n-workflow';
-import { validateBulkProfiles } from './validators';
 
 const displayOptions = {
 	show: {
@@ -17,11 +16,6 @@ export const contactInfoBulkV2Fields: INodeProperties[] = [
 		default: '[\n  "https://linkedin.com/in/example-profile-1",\n  "https://linkedin.com/in/example-profile-2"\n]',
 		description: 'Array of LinkedIn profile URLs to enrich (max 1000)',
 		displayOptions,
-		routing: {
-			send: {
-				preSend: [validateBulkProfiles],
-			},
-		},
 	},
 	{
 		displayName: 'Callback URL',

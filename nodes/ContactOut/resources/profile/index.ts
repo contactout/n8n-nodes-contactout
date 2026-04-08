@@ -3,7 +3,12 @@ import { contactInfoSingleFields } from './contactInfoSingle';
 import { peopleEnrichFields } from './peopleEnrich';
 import { contactInfoBulkV2Fields } from './contactInfoBulkV2';
 import { decisionMakersFields } from './decisionMakers';
-import { validatePeopleEnrich, validateDecisionMakers } from './validators';
+import {
+	contactInfoSinglePreSend,
+	peopleEnrichPreSend,
+	contactInfoBulkV2PreSend,
+	decisionMakersPreSend,
+} from './preSend';
 
 export const profileOperations: INodeProperties = {
 	displayName: 'Operation',
@@ -28,7 +33,7 @@ export const profileOperations: INodeProperties = {
 					url: '/v1/people/enrich',
 				},
 				send: {
-					preSend: [validatePeopleEnrich],
+					preSend: [peopleEnrichPreSend],
 				},
 			},
 		},
@@ -43,6 +48,9 @@ export const profileOperations: INodeProperties = {
 					method: 'GET',
 					url: '/v1/people/linkedin',
 				},
+				send: {
+					preSend: [contactInfoSinglePreSend],
+				},
 			},
 		},
 		{
@@ -55,6 +63,9 @@ export const profileOperations: INodeProperties = {
 				request: {
 					method: 'POST',
 					url: '/v2/people/linkedin/batch',
+				},
+				send: {
+					preSend: [contactInfoBulkV2PreSend],
 				},
 			},
 		},
@@ -70,7 +81,7 @@ export const profileOperations: INodeProperties = {
 					url: '/v1/people/decision-makers',
 				},
 				send: {
-					preSend: [validateDecisionMakers],
+					preSend: [decisionMakersPreSend],
 				},
 			},
 		},

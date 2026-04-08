@@ -1,7 +1,29 @@
 import type { IExecuteSingleFunctions, IHttpRequestOptions } from 'n8n-workflow';
 import { NodeOperationError } from 'n8n-workflow';
 
-export async function validatePeopleEnrich(
+export async function contactInfoSinglePreSend(
+	this: IExecuteSingleFunctions,
+	requestOptions: IHttpRequestOptions,
+): Promise<IHttpRequestOptions> {
+	const selected = this.getNodeParameter('includeContactInfo') as string[];
+
+	const hasWork = selected.includes('work_email');
+	const hasPersonal = selected.includes('personal_email');
+
+	let emailType: string | undefined;
+	if (hasWork && hasPersonal) emailType = 'personal,work';
+	else if (hasPersonal) emailType = 'personal';
+	else if (hasWork) emailType = 'work';
+
+	if (emailType) {
+		(requestOptions.qs as Record<string, unknown>) ??= {};
+		(requestOptions.qs as Record<string, unknown>).email_type = emailType;
+	}
+
+	return requestOptions;
+}
+
+export async function peopleEnrichPreSend(
 	this: IExecuteSingleFunctions,
 	requestOptions: IHttpRequestOptions,
 ): Promise<IHttpRequestOptions> {
@@ -29,7 +51,7 @@ export async function validatePeopleEnrich(
 	return requestOptions;
 }
 
-export async function validateBulkProfiles(
+export async function contactInfoBulkV2PreSend(
 	this: IExecuteSingleFunctions,
 	requestOptions: IHttpRequestOptions,
 ): Promise<IHttpRequestOptions> {
@@ -71,7 +93,7 @@ export async function validateBulkProfiles(
 	return requestOptions;
 }
 
-export async function validateDecisionMakers(
+export async function decisionMakersPreSend(
 	this: IExecuteSingleFunctions,
 	requestOptions: IHttpRequestOptions,
 ): Promise<IHttpRequestOptions> {
