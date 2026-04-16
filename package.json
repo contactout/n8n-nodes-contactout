@@ -1,6 +1,6 @@
 {
     "name": "@contactout/n8n-nodes-contactout",
-    "version": "0.1.3",
+    "version": "0.1.4",
     "description": "n8n community node for ContactOut API - Find emails and phone numbers from LinkedIn profiles",
     "license": "MIT",
     "homepage": "https://contactout.com",
