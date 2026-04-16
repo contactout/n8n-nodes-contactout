@@ -52,4 +52,4 @@ When a new lead fills out a form, use the **Get Contact Info** operation with th
 
 ## License
 
-[MIT](LICENSE.md)
+[MIT](LICENSE)
