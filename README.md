@@ -18,7 +18,7 @@ npm install @contactout/n8n-nodes-contactout
 
 This node requires a ContactOut API key.
 
-1. Get an API key from the [ContactOut dashboard](https://app.contactout.com) or contact [sales@contactout.com](mailto:sales@contactout.com)
+1. Get an API key from the [ContactOut dashboard](https://contactout.com/api-dashboard) or contact [sales@contactout.com](mailto:sales@contactout.com)
 2. In n8n, go to **Credentials > New > ContactOut API**
 3. Paste your API key and save
 
