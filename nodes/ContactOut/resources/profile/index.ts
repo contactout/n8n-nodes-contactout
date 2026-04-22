@@ -22,38 +22,6 @@ export const profileOperations: INodeProperties = {
 	},
 	options: [
 		{
-			name: 'Enrich Profile',
-			value: 'peopleEnrich',
-			action: 'Enrich a single profile',
-			description:
-				'Enrich a profile via LinkedIn URL, email, phone, company data, and other data points. Returns structured profile details and optionally emails or phone numbers. Consumes email/phone credits when requested.',
-			routing: {
-				request: {
-					method: 'POST',
-					url: '/v1/people/enrich',
-				},
-				send: {
-					preSend: [peopleEnrichPreSend],
-				},
-			},
-		},
-		{
-			name: 'Get Contact Info',
-			value: 'contactInfoSingle',
-			action: 'Get contact details from a linked in url',
-			description:
-				'Get contact details (email/phone) from a LinkedIn profile URL. Consumes email/phone credits.',
-			routing: {
-				request: {
-					method: 'GET',
-					url: '/v1/people/linkedin',
-				},
-				send: {
-					preSend: [contactInfoSinglePreSend],
-				},
-			},
-		},
-		{
 			name: 'Batch Lookup',
 			value: 'contactInfoBulkV2',
 			action: 'Enrich multiple profiles',
@@ -70,6 +38,22 @@ export const profileOperations: INodeProperties = {
 			},
 		},
 		{
+			name: 'Enrich Profile',
+			value: 'peopleEnrich',
+			action: 'Enrich a single profile',
+			description:
+				'Enrich a profile via LinkedIn URL, email, phone, company data, and other data points. Returns structured profile details and optionally emails or phone numbers. Consumes email/phone credits when requested.',
+			routing: {
+				request: {
+					method: 'POST',
+					url: '/v1/people/enrich',
+				},
+				send: {
+					preSend: [peopleEnrichPreSend],
+				},
+			},
+		},
+		{
 			name: 'Find Decision Makers',
 			value: 'decisionMakers',
 			action: 'Find company decision makers',
@@ -82,6 +66,23 @@ export const profileOperations: INodeProperties = {
 				},
 				send: {
 					preSend: [decisionMakersPreSend],
+				},
+			},
+		},
+		{
+			name: 'Get Contact Info',
+			value: 'contactInfoSingle',
+			// eslint-disable-next-line n8n-nodes-base/node-param-operation-option-action-miscased -- LinkedIn is a proper noun (n8n UX / brand spelling)
+			action: 'Get contact details from a LinkedIn URL',
+			description:
+				'Get contact details (email/phone) from a LinkedIn profile URL. Consumes email/phone credits.',
+			routing: {
+				request: {
+					method: 'GET',
+					url: '/v1/people/linkedin',
+				},
+				send: {
+					preSend: [contactInfoSinglePreSend],
 				},
 			},
 		},
